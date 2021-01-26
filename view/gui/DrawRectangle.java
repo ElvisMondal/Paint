@@ -17,11 +17,10 @@ public class DrawRectangle implements DrawShapeInterface {
         private Points adjustedStart, adjustedEnd, startPoint, endPoint;
         private ShapeType shapeType;
 
-        public DrawRectangle(ShapeConfiguration shapeConfiguration) {
+
+    public DrawRectangle(ShapeConfiguration shapeConfiguration) {
             this.shapeConfig = shapeConfiguration;
             this.shapeShadingType=shapeConfiguration.getShadingType();
-            //this.primaryColor = ColorSingleton.getColor(shapeConfiguration.getPrimaryColor());
-            //this.secondaryColor = ColorSingleton.getColor(shapeConfiguration.getSecondaryColor());
             this.width = shapeConfiguration.getWidth();
             this.height = shapeConfiguration.getHeight();
             this.adjustedStart = shapeConfiguration.getAdjustedStart();
@@ -34,20 +33,11 @@ public class DrawRectangle implements DrawShapeInterface {
         @Override
         public void draw(Graphics g) {
             Graphics2D g2 = (Graphics2D) g;
-            if (shapeShadingType.equals(ShapeShadingType.OUTLINE)) {
-                g.setColor(primaryColor);
-                g2.setStroke(new BasicStroke(8));
-                g.drawRect(adjustedStart.getX(), adjustedStart.getY(), width, height);
-            } else if (shapeShadingType.equals(ShapeShadingType.FILLED_IN)) {
-                g.setColor(secondaryColor);
-                g.fillRect(adjustedStart.getX(), adjustedStart.getY(), width, height);
-            } else if (shapeShadingType.equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)) {
-                g.setColor(primaryColor);
-                g2.setStroke(new BasicStroke(8));
-                g.drawRect(adjustedStart.getX(), adjustedStart.getY(), width, height);
-                g.setColor(secondaryColor);
-                g.fillRect(adjustedStart.getX(), adjustedStart.getY(), width, height);
-            }
+
+            g.setColor(primaryColor);
+            g2.setStroke(new BasicStroke(8));
+            g.fillRect(adjustedStart.getX(), adjustedStart.getY(), width, height);
+
         }
 
     @Override

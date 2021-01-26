@@ -94,32 +94,25 @@ public class ApplicationState implements IApplicationState {
 
     @Override
     public void setActiveShape() {
-       /* activeShapeType = uiModule.getDialogResponse(dialogProvider.getChooseShapeDialog());
-        System.out.println("ShapeConfiguration: " + activeShapeType);*/
     }
 
     @Override
     public void setActivePrimaryColor() {
-        /*activePrimaryColor = uiModule.getDialogResponse(dialogProvider.getChoosePrimaryColorDialog());
-        System.out.println("Primary Color " + activePrimaryColor);*/
+
     }
 
     @Override
     public void setActiveSecondaryColor() {
-        /*activeSecondaryColor = uiModule.getDialogResponse(dialogProvider.getChooseSecondaryColorDialog());
-        System.out.println("Secondary Color: " + activeSecondaryColor);*/
+
     }
 
     @Override
     public void setActiveShadingType() {
-        /*activeShapeShadingType = uiModule.getDialogResponse(dialogProvider.getChooseShadingTypeDialog());
-        System.out.println("Shading Type: " + activeShapeShadingType);*/
+
     }
 
     @Override
     public void setActiveStartAndEndPointMode() {
-       /* activeMouseMode = uiModule.getDialogResponse(dialogProvider.getChooseStartAndEndPointModeDialog());
-        System.out.println("Mouse Mode: " + activeMouseMode);*/
         observersNotification();
     }
 
