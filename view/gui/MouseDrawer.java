@@ -27,23 +27,6 @@ public class MouseDrawer extends MouseAdapter {
         this.shapeConfiguration = shapeConfiguration;
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-        ShapeColor primaryColor = applicationState.getActivePrimaryColor();
-        shapecolor.add(primaryColor);
-        ShapeColor secondaryColor = applicationState.getActiveSecondaryColor();
-        shapecolor.add(secondaryColor);
-
-        if (SwingUtilities.isLeftMouseButton(e)) {
-            applicationState.setActivePrimaryColor(shapecolor.get(0));
-            applicationState.setActiveSecondaryColor(shapecolor.get(1));
-
-        } else if (SwingUtilities.isRightMouseButton(e)) {
-            applicationState.setActivePrimaryColor(shapecolor.get(1));
-            applicationState.setActiveSecondaryColor(shapecolor.get(0));
-        }
-    }
 
     @Override
     public void mouseReleased(MouseEvent e) {
