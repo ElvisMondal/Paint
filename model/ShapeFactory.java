@@ -1,7 +1,9 @@
 package model;
 
 
+import view.gui.DrawEllipse;
 import view.gui.DrawRectangle;
+import view.gui.DrawTriangle;
 import view.interfaces.DrawShapeInterface;
 
 
@@ -14,6 +16,14 @@ public class ShapeFactory {
         if (shapeType.equals(ShapeType.RECTANGLE)) {
             System.out.println("ShapeCreateCommand executed. Rectangle drawn.");
             shape = new DrawRectangle(shapeConfiguration);
+        } else if (shapeType.equals(ShapeType.ELLIPSE)) {
+            System.out.println("ShapeCreateCommand executed. Ellipse drawn.");
+            shape = new DrawEllipse(shapeConfiguration);
+        } else if (shapeType.equals(ShapeType.TRIANGLE)) {
+            System.out.println("ShapeCreateCommand executed. Triangle drawn.");
+            shape = new DrawTriangle(shapeConfiguration);
+        } else {
+            // System.out.println("this is NULLLLLLLL");
         }
         return shape;
     }

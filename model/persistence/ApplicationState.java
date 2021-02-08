@@ -60,6 +60,8 @@ public class ApplicationState implements IApplicationState {
     }
 
 
+
+
     @Override
     public void setActivePrimaryColor(ShapeColor activePrimaryColor) {
         this.activePrimaryColor = activePrimaryColor;
@@ -118,6 +120,10 @@ public class ApplicationState implements IApplicationState {
         observersNotification();
     }
 
+    @Override
+    public MouseMode getActiveStartAndEndPointMode() {
+        return activeMouseMode;
+    }
     public int getWidth() {
         return width;
     }

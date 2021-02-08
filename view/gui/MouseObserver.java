@@ -38,6 +38,16 @@ public class MouseObserver extends JFrame implements MouseAdapterObserverInterfa
             paintCanvas.setCursor((new Cursor(Cursor.CROSSHAIR_CURSOR)));
             paintCanvas.addMouseListener(new MouseDrawer(applicationState, shapeList, shapeConfiguration));
         }
+        else if (startAndEndPointMode.equals(MouseMode.SELECT))
+        {
+            paintCanvas.setCursor((new Cursor(Cursor.HAND_CURSOR)));
+            paintCanvas.addMouseListener(new MouseSelector(applicationState, shapeList));
+        }
+        else if (startAndEndPointMode.equals(MouseMode.MOVE))
+        {
+            paintCanvas.setCursor((new Cursor(Cursor.MOVE_CURSOR)));
+            paintCanvas.addMouseListener(new MouseMover(applicationState, shapeList, shapeConfiguration));
+        }
 
     }
 }
