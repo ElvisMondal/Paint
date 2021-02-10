@@ -60,7 +60,7 @@ public class CommandSelectShape implements CommandInterface {
                containsSelectedShape = true;
                selectedShape = shape;
                shapeList.add_SelectedList(selectedShape);
-               System.out.println(">> Shape selected. " + shapeList.get_SelectedShapesList().size());
+               System.out.println(">> Shape selected. ");
                break;
            } else {
                containsSelectedShape = false;
