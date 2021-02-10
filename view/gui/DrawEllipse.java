@@ -36,7 +36,7 @@ public class DrawEllipse extends PaintCanvasBase implements DrawShapeInterface {
     @Override
     public void draw(Graphics g) {
 
-        getGraphics2D();
+        paint=(Graphics2D) g;
         if (shapeShadingType.equals(ShapeShadingType.OUTLINE)) {
             g.setColor(primaryColor);
             paint.setStroke(new BasicStroke(8));
@@ -46,7 +46,7 @@ public class DrawEllipse extends PaintCanvasBase implements DrawShapeInterface {
             g.fillOval(adjustedStart.getX(), adjustedStart.getY(), width, height);
         } else if (shapeShadingType.equals(ShapeShadingType.OUTLINE_AND_FILLED_IN)) {
             g.setColor(primaryColor);
-           paint.setStroke(new BasicStroke(8));
+            paint.setStroke(new BasicStroke(8));
             g.drawOval(adjustedStart.getX(), adjustedStart.getY(), width, height);
             g.setColor(secondaryColor);
             g.fillOval(adjustedStart.getX(), adjustedStart.getY(), width, height);

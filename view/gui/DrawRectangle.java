@@ -38,7 +38,7 @@ public class DrawRectangle extends PaintCanvasBase implements DrawShapeInterface
         public void draw(Graphics g) {
 
 
-            getGraphics2D();
+            paint=(Graphics2D) g;
             if (shapeShadingType.equals(ShapeShadingType.OUTLINE)) {
                 g.setColor(primaryColor);
                 paint.setStroke(new BasicStroke(8));
