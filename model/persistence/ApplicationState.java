@@ -59,6 +59,19 @@ public class ApplicationState implements IApplicationState {
         return shapeConfig;
     }
 
+    @Override
+    public ShapeConfiguration get_CurrentShapeConfigs() {
+        ShapeConfiguration shapeConfigs = new ShapeConfiguration();
+        shapeConfigs.setShapeType(activeShapeType);
+        shapeConfigs.setEndPoint(endPoint);
+        shapeConfigs.setStartPoint(startPoint);
+        shapeConfigs.setAdjustedStart(adjustedStart);
+        shapeConfigs.setAdjustedEnd(adjustedEnd);
+        shapeConfigs.setWidth(width);
+        shapeConfigs.setHeight(height);
+        return shapeConfigs;
+    }
+
 
 
 

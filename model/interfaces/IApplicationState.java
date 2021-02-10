@@ -23,6 +23,8 @@ public interface IApplicationState {
 
     ShapeConfiguration get_CurrentShapeConfig();
 
+    ShapeConfiguration get_CurrentShapeConfigs();
+
     MouseMode getActiveStartAndEndPointMode();
 
     ShapeColor getActivePrimaryColor();

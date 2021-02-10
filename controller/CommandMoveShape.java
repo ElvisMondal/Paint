@@ -23,7 +23,7 @@ public class CommandMoveShape implements CommandInterface, IUndoable {
     @Override
     public void execute() {
 
-        temporaryShapeList = new ArrayList<DrawShapeInterface>();
+        temporaryShapeList = new ArrayList<>();
 
         int dx = appState.getEndPoint().getX() - appState.getStartPoint().getX();
         int dy = appState.getEndPoint().getY() - appState.getStartPoint().getY();
