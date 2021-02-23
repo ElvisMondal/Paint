@@ -22,13 +22,14 @@ public class ShapeList  implements ShapeListSubjectInterface {
         }
 
         public void add_Shape(DrawShapeInterface shapes) {
-            //  System.out.println("ShapeList adding");
+
             internalShapesList.add(shapes);
             observerNotification();
+
         }
 
         public void remove_Shape(DrawShapeInterface shape) {
-            //  System.out.println("ShapeList adding");
+
             internalShapesList.remove(shape);
             observerNotification();
         }

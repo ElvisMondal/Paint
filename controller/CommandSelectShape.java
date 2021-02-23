@@ -2,13 +2,13 @@ package controller;
 
 import model.ShapeConfiguration;
 import model.ShapeFactory;
+import model.ShapeType;
 import model.interfaces.IApplicationState;
 import model.interfaces.ShapeListSubjectInterface;
-import view.gui.DrawRectangle;
-import view.gui.Rect;
+import view.gui.*;
 import view.interfaces.DrawShapeInterface;
 
-import java.util.ArrayList;
+import java.awt.*;
 
 public class CommandSelectShape implements CommandInterface {
 
@@ -17,7 +17,7 @@ public class CommandSelectShape implements CommandInterface {
     private DrawShapeInterface selectedShape;
     private IApplicationState applicationState;
     private ShapeConfiguration shapeConfiguration;
-    private DrawShapeInterface shapes;
+    private DrawShapeInterface shapes,sp;
     Boolean containsSelectedShape = false;
 
     public CommandSelectShape(IApplicationState applicationState, ShapeListSubjectInterface shapeList) {
@@ -27,11 +27,15 @@ public class CommandSelectShape implements CommandInterface {
 
     @Override
     public void execute() {
+
+        //DrawShapeInterface shapeses = null;
         System.out.println("Select mode...");
+
 
         shapeConfiguration = applicationState.get_CurrentShapeConfigs();
         shapes = new Rect(shapeConfiguration);
         this.shapeList.add_Shape(shapes);
+
 
 
 
@@ -56,10 +60,25 @@ public class CommandSelectShape implements CommandInterface {
 
            }
 
+
+
            if (contain){
                containsSelectedShape = true;
                selectedShape = shape;
-               shapeList.add_SelectedList(selectedShape);
+               ShapeType shapeType = shapeConfiguration.getShapeType();
+               if (shapeType.equals(ShapeType.RECTANGLE)) {
+                   shapes= new DottedRect(shapeConfiguration,shape.getAdjustedStart().getX(),shape.getAdjustedStart().getY(),shape.getWidth(),shape.getHeight());
+                   this.shapeList.add_Shape(shapes);
+               } else if (shapeType.equals(ShapeType.ELLIPSE)) {
+                   shapes= new DottedEllipse(shapeConfiguration,shape.getAdjustedStart().getX(),shape.getAdjustedStart().getY(),shape.getWidth(),shape.getHeight());
+                   this.shapeList.add_Shape(shapes);
+               } else if (shapeType.equals(ShapeType.TRIANGLE)) {
+                   shapes= new DottedTriangle(shapeConfiguration,shape.getAdjustedStart().getX(),shape.getAdjustedStart().getY(),shape.getAdjustedEnd().getX(),shape.getAdjustedEnd().getY());
+                   this.shapeList.add_Shape(shapes);
+               } else {
+
+               }
+
                System.out.println(">> Shape selected. ");
                break;
            } else {
@@ -78,4 +97,6 @@ public class CommandSelectShape implements CommandInterface {
     public DrawShapeInterface getSelectedShape() {
         return selectedShape;
     }
+
+
 }
