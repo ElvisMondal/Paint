@@ -9,6 +9,8 @@ import view.interfaces.DrawShapeInterface;
 import java.awt.*;
 import java.util.ArrayList;
 
+
+//Composite Pattern Has been Implmented.
 public class Group implements DrawShapeInterface {
 
 
