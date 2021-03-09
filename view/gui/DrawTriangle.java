@@ -144,4 +144,6 @@ public class DrawTriangle extends PaintCanvasBase implements DrawShapeInterface 
     public Graphics2D getGraphics2D() {
         return paint;
     }
+
+
 }

@@ -145,5 +145,6 @@ public class DottedTriangle extends PaintCanvasBase implements DrawShapeInterfac
     public Graphics2D getGraphics2D() {
         return paint;
     }
+
 }
 

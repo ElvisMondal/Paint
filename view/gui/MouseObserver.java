@@ -1,5 +1,7 @@
 package view.gui;
 
+import controller.CommandInterface;
+import controller.ProxyOutline;
 import model.MouseMode;
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
@@ -15,6 +17,8 @@ public class MouseObserver extends JFrame implements MouseAdapterObserverInterfa
     private PaintCanvas paintCanvas;
     private ShapeListSubjectInterface shapeList;
     private ShapeConfiguration shapeConfiguration;
+
+
 
     public MouseObserver(IApplicationState applicationState, PaintCanvas paintCanvas, ShapeListSubjectInterface shapeList, ShapeConfiguration shapeConfiguration) {
         this.applicationState = applicationState;
@@ -42,6 +46,7 @@ public class MouseObserver extends JFrame implements MouseAdapterObserverInterfa
         {
             paintCanvas.setCursor((new Cursor(Cursor.HAND_CURSOR)));
             paintCanvas.addMouseListener(new MouseSelector(applicationState, shapeList));
+
         }
         else if (startAndEndPointMode.equals(MouseMode.MOVE))
         {

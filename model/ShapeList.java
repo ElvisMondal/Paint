@@ -7,7 +7,9 @@ import view.interfaces.DrawShapeInterface;
 import java.util.ArrayList;
 
 public class ShapeList  implements ShapeListSubjectInterface {
-        private final ArrayList<DrawShapeInterface> internalShapesList;
+
+
+    private final ArrayList<DrawShapeInterface> internalShapesList;
         private final ArrayList<ShapeListObserverInterface> observers;
         private final ArrayList<DrawShapeInterface> selectedShapesList;
         private final ArrayList<DrawShapeInterface> clipBoard;
@@ -77,6 +79,11 @@ public class ShapeList  implements ShapeListSubjectInterface {
         public ArrayList<DrawShapeInterface> get_SelectedShapesList() {
             return selectedShapesList;
         }
+
+        public ArrayList<DrawShapeInterface> get_InternalShapesList() {
+        return internalShapesList;
+    }
+
 
         //Clipboard Shapelist
 

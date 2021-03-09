@@ -22,7 +22,10 @@ public class Main {
         PaintCanvas paintCanvas = new PaintCanvas(shapeList);
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
         IUiModule uiModule = new Gui(guiWindow);
+
+
         ApplicationState appState = new ApplicationState(uiModule);
+
 
 
 
@@ -32,5 +35,6 @@ public class Main {
         MouseObserver mouseObserver = new MouseObserver(appState, paintCanvas, shapeList, shapeConfig);
         mouseObserver.execute();
         paintController.setup();
+
     }
 }

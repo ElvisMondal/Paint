@@ -2,11 +2,12 @@ package view.interfaces;
 
 import controller.Points;
 import model.ShapeConfiguration;
+import model.interfaces.IUndoable;
 
 
 import java.awt.*;
 
-public interface DrawShapeInterface {
+public interface DrawShapeInterface{
     void draw(Graphics g);
 
     boolean contains(Points start_Point);

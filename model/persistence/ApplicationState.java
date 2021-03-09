@@ -1,6 +1,7 @@
 package model.persistence;
 
 import controller.Points;
+import controller.ProxyOutline;
 import model.ShapeColor;
 import model.MouseMode;
 import model.ShapeConfiguration;
@@ -27,6 +28,8 @@ public class ApplicationState implements IApplicationState {
     private MouseMode activeMouseMode;
     private Points startPoint, endPoint, adjustedStart, adjustedEnd;
     private int width, height;
+    ProxyOutline undoShapeProxy = null;
+    ProxyOutline redoShapeProxy = null;
 
     public ApplicationState(IUiModule uiModule) {
         this.uiModule = uiModule;

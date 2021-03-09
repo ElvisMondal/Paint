@@ -1,6 +1,7 @@
 package model;
 
 
+import controller.NullPattern;
 import view.gui.DrawEllipse;
 import view.gui.DrawRectangle;
 import view.gui.DrawTriangle;
@@ -24,6 +25,7 @@ public class ShapeFactory {
             shape = new DrawTriangle(shapeConfiguration);
         } else {
             // System.out.println("this is NULLLLLLLL");
+            shape=new NullPattern();
         }
         return shape;
     }

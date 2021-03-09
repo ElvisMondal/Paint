@@ -120,6 +120,7 @@ public class DrawEllipse extends PaintCanvasBase implements DrawShapeInterface {
     public Graphics2D getGraphics2D() {
         return paint;
     }
+
 }
 
 

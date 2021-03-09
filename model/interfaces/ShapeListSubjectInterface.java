@@ -21,6 +21,8 @@ public interface ShapeListSubjectInterface {
 
     ArrayList<DrawShapeInterface> get_SelectedShapesList();
 
+    ArrayList<DrawShapeInterface> get_InternalShapesList();
+
     void selected_ListRemove();
 
     void selectedShapeListClear();

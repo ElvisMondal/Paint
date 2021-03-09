@@ -65,7 +65,7 @@ public class CommandSelectShape implements CommandInterface {
            if (contain){
                containsSelectedShape = true;
                selectedShape = shape;
-               ShapeType shapeType = shapeConfiguration.getShapeType();
+               /*ShapeType shapeType = shapeConfiguration.getShapeType();
                if (shapeType.equals(ShapeType.RECTANGLE)) {
                    shapes= new DottedRect(shapeConfiguration,shape.getAdjustedStart().getX(),shape.getAdjustedStart().getY(),shape.getWidth(),shape.getHeight());
                    this.shapeList.add_Shape(shapes);
@@ -77,7 +77,7 @@ public class CommandSelectShape implements CommandInterface {
                    this.shapeList.add_Shape(shapes);
                } else {
 
-               }
+               }*/
 
                System.out.println(">> Shape selected. ");
                break;
@@ -93,6 +93,8 @@ public class CommandSelectShape implements CommandInterface {
 
 
     }
+
+    public boolean containsSelectedShape(){ return containsSelectedShape;}
 
     public DrawShapeInterface getSelectedShape() {
         return selectedShape;

@@ -63,11 +63,15 @@ public enum EventName {
 			return "DELETE";
 		}
 	},
-	CLEAR {
+	GROUP{
 		@Override
 		public String toString() {
-			return "CLEAR ALL";
+			return "GROUP";
 		}
+	},
+	UNGROUP{
+		@Override
+		public String toString() { return "UNGROUP";}
 	}
 
 }

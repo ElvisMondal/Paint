@@ -26,8 +26,8 @@ public class Paste  implements CommandInterface, IUndoable {
 
         for (DrawShapeInterface selectedShape : shapeList.get_SelectedShapesList()) {
             newShape = selectedShape;
-            selectedShape.addX(50);
-            selectedShape.addY(50);
+            selectedShape.addX(80);
+            selectedShape.addY(80);
 
             CommandCreateShape shape = new CommandCreateShape(appState, shapeList, selectedShape.getShapeConfiguration());
             tempShapeList.add(shape.shapeFactory.createShape(selectedShape.getShapeConfiguration()));
