@@ -17,12 +17,12 @@ public class NullPattern implements DrawShapeInterface {
     }
 
     @Override
-    public Points getStartPoint() {
+    public Points getStartsPoints() {
         return null;
     }
 
     @Override
-    public Points getEndPoint() {
+    public Points getEndsPoints() {
         return null;
     }
 
@@ -37,37 +37,37 @@ public class NullPattern implements DrawShapeInterface {
     }
 
     @Override
-    public void setAdjustedEnd(Points adjustedEnd) {
+    public void setAdjustedsEnds(Points adjustedEnd) {
         System.out.println("No End-Coordinates for Null Shape  ");
     }
 
     @Override
-    public void setAdjustedStart(Points adjustedStart) {
+    public void setAdjustedsStarts(Points adjustedStart) {
         System.out.println("No Start-Coordinates for Null Shape  ");
     }
 
     @Override
-    public Points getAdjustedStart() {
+    public Points getAdjustedsStarts() {
         return null;
     }
 
     @Override
-    public Points getAdjustedEnd() {
+    public Points getAdjustedsEnds() {
         return null;
     }
 
     @Override
-    public ShapeConfiguration getShapeConfiguration() {
+    public ShapeConfiguration getShapesConf() {
         return null;
     }
 
     @Override
-    public int getWidth() {
+    public int getWidths() {
         return 0;
     }
 
     @Override
-    public int getHeight() {
+    public int getHeights() {
         return 0;
     }
 

@@ -1,26 +1,20 @@
 package controller;
 
-import model.ShapeConfiguration;
-import model.ShapeType;
 import model.interfaces.IApplicationState;
 import model.interfaces.IOutline;
-import model.interfaces.ShapeListSubjectInterface;
-import model.persistence.ApplicationState;
-import view.gui.DottedEllipse;
-import view.gui.DottedRect;
-import view.gui.DottedTriangle;
+import model.interfaces.ShapeSubjectList;
 
 public class ProxyOutline implements IOutline {
 
     CommandInterface commandInterface;
     private IApplicationState applicationState;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
 
     private CommandSelectShape selectShape=null;
-    private CommandMoveShape moveShape=null;
+    private MoveShapes moveShape=null;
 
 
-    public ProxyOutline(CommandInterface command, IApplicationState applicationState, ShapeListSubjectInterface shapeList) {
+    public ProxyOutline(CommandInterface command, IApplicationState applicationState, ShapeSubjectList shapeList) {
         this.applicationState = applicationState;
         this.shapeList = shapeList;
         this.commandInterface = command;

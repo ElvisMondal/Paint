@@ -2,25 +2,22 @@ package controller;
 
 import model.ShapeConfiguration;
 import model.ShapeFactory;
-import model.ShapeType;
 import model.interfaces.IApplicationState;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 import view.gui.*;
 import view.interfaces.DrawShapeInterface;
-
-import java.awt.*;
 
 public class CommandSelectShape implements CommandInterface {
 
     ShapeFactory shapeFactory = new ShapeFactory();
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private DrawShapeInterface selectedShape;
     private IApplicationState applicationState;
     private ShapeConfiguration shapeConfiguration;
     private DrawShapeInterface shapes,sp;
     Boolean containsSelectedShape = false;
 
-    public CommandSelectShape(IApplicationState applicationState, ShapeListSubjectInterface shapeList) {
+    public CommandSelectShape(IApplicationState applicationState, ShapeSubjectList shapeList) {
         this.shapeList = shapeList;
         this.applicationState = applicationState;
     }
@@ -32,29 +29,29 @@ public class CommandSelectShape implements CommandInterface {
         System.out.println("Select mode...");
 
 
-        shapeConfiguration = applicationState.get_CurrentShapeConfigs();
+        shapeConfiguration = applicationState.getCurrentShapeConfigs();
         shapes = new Rect(shapeConfiguration);
-        this.shapeList.add_Shape(shapes);
+        this.shapeList.addShap(shapes);
 
 
 
 
-       for (DrawShapeInterface shape : shapeList.get_ShapeList()) {
+       for (DrawShapeInterface shape : shapeList.getShapesLists()) {
             boolean contain = shape.contains(applicationState.getStartPoint());
-           if((shapes.getAdjustedEnd().getX())<(shape.getAdjustedEnd().getX())){
-               shapeList.add_SelectedList(shape);
+           if((shapes.getAdjustedsEnds().getX())<(shape.getAdjustedsEnds().getX())){
+               shapeList.addSelectedsLists(shape);
            }
-            else if((shapes.getAdjustedEnd().getX())>(shape.getAdjustedEnd().getX())){
-               shapeList.add_SelectedList(shape);
+            else if((shapes.getAdjustedsEnds().getX())>(shape.getAdjustedsEnds().getX())){
+               shapeList.addSelectedsLists(shape);
            }
-            else if ((shapes.getAdjustedEnd().getY())<(shape.getAdjustedEnd().getY())){
-               shapeList.add_SelectedList(shape);
+            else if ((shapes.getAdjustedsEnds().getY())<(shape.getAdjustedsEnds().getY())){
+               shapeList.addSelectedsLists(shape);
            }
-            else if ((shapes.getAdjustedEnd().getY())>(shape.getAdjustedEnd().getY())){
-               shapeList.add_SelectedList(shape);
+            else if ((shapes.getAdjustedsEnds().getY())>(shape.getAdjustedsEnds().getY())){
+               shapeList.addSelectedsLists(shape);
            }
-            else if ((containsSelectedShape==false) && (shapes.getAdjustedEnd()!=null)){
-               shapeList.add_SelectedList(shape);
+            else if ((containsSelectedShape==false) && (shapes.getAdjustedsEnds()!=null)){
+               shapeList.addSelectedsLists(shape);
            }
             else {
 
@@ -86,9 +83,9 @@ public class CommandSelectShape implements CommandInterface {
            }
         }
         if (containsSelectedShape == false) {
-            shapeList.selectedShapeListClear();
-            shapeList.get_ClipBoardShapes().clear();
-            System.out.println("Shape List cleared. Shapes selected: " + shapeList.get_SelectedShapesList().size());
+            shapeList.selectedsShapeListsClears();
+            shapeList.getsClipBoardsShapes().clear();
+            System.out.println("Shape List cleared. Shapes selected: " + shapeList.getSelectedsShapesLists().size());
         }
 
 

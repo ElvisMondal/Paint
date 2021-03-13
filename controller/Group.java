@@ -10,7 +10,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 
-//Composite Pattern Has been Implmented.
+
 public class Group implements DrawShapeInterface {
 
 
@@ -66,42 +66,42 @@ public class Group implements DrawShapeInterface {
     }
 
     @Override
-    public int getWidth() {
+    public int getWidths() {
         return width;
     }
 
     @Override
-    public int getHeight() {
+    public int getHeights() {
         return height;
     }
 
     @Override
-    public Points getStartPoint() {
+    public Points getStartsPoints() {
         return startPoint;
     }
 
     @Override
-    public Points getEndPoint() {
+    public Points getEndsPoints() {
         return adjustedEnd;
     }
 
     @Override
-    public void setAdjustedStart(Points adjustedStart) {
+    public void setAdjustedsStarts(Points adjustedStart) {
         this.adjustedStart = adjustedStart;
     }
 
     @Override
-    public void setAdjustedEnd(Points adjustedEnd) {
+    public void setAdjustedsEnds(Points adjustedEnd) {
         this.adjustedEnd = adjustedEnd;
     }
 
     @Override
-    public Points getAdjustedStart() {
+    public Points getAdjustedsStarts() {
         return adjustedStart;
     }
 
     @Override
-    public Points getAdjustedEnd() {
+    public Points getAdjustedsEnds() {
         return adjustedEnd;
     }
 
@@ -119,7 +119,7 @@ public class Group implements DrawShapeInterface {
 
 
     @Override
-    public ShapeConfiguration getShapeConfiguration() {
+    public ShapeConfiguration getShapesConf() {
         return shapeConfig;
     }
 

@@ -7,22 +7,22 @@ import controller.ProxyOutline;
 import model.ShapeColor;
 import model.interfaces.IApplicationState;
 import model.interfaces.IOutline;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class MouseSelector extends MouseAdapter {
+public class Selector extends MouseAdapter {
     private Points startPoint;
     private Points endPoint;
     private IApplicationState appState;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     CommandInterface comm=null;
     ProxyOutline selectShapeProxy;
     ArrayList<ShapeColor> shapecolor = new ArrayList();
 
-    public MouseSelector(IApplicationState applicationState, ShapeListSubjectInterface shapeList) {
+    public Selector(IApplicationState applicationState, ShapeSubjectList shapeList) {
         this.appState = applicationState;
         this.shapeList = shapeList;
     }

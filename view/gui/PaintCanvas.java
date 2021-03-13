@@ -1,29 +1,29 @@
 package view.gui;
 
-import model.interfaces.ShapeListObserverInterface;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeObserverList;
+import model.interfaces.ShapeSubjectList;
 import view.interfaces.DrawShapeInterface;
 //import view.interfaces.PaintCanvasBase;
 
 import javax.swing.JComponent;
 import java.awt.*;
 
-public class PaintCanvas  extends JComponent implements ShapeListObserverInterface {
-    private final ShapeListSubjectInterface shapelist;
+public class PaintCanvas  extends JComponent implements ShapeObserverList {
+    private final ShapeSubjectList shapelist;
 
-    public PaintCanvas(ShapeListSubjectInterface shapelist) {
+    public PaintCanvas(ShapeSubjectList shapelist) {
         this.shapelist = shapelist;
-        shapelist.subscribe(this);
+        shapelist.subscribes(this);
     }
 
     @Override
-    public void updateShapeList() {
+    public void updateShapeLists() {
         repaint();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
-        for (DrawShapeInterface shape : shapelist.get_ShapeList()) {
+        for (DrawShapeInterface shape : shapelist.getShapesLists()) {
             shape.draw(g);
         }
     }

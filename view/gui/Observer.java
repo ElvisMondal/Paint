@@ -1,31 +1,29 @@
 package view.gui;
 
-import controller.CommandInterface;
-import controller.ProxyOutline;
 import model.MouseMode;
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 import view.interfaces.MouseAdapterObserverInterface;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseListener;
 
-public class MouseObserver extends JFrame implements MouseAdapterObserverInterface {
+public class Observer extends JFrame implements MouseAdapterObserverInterface {
     private IApplicationState applicationState;
     private PaintCanvas paintCanvas;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private ShapeConfiguration shapeConfiguration;
 
 
 
-    public MouseObserver(IApplicationState applicationState, PaintCanvas paintCanvas, ShapeListSubjectInterface shapeList, ShapeConfiguration shapeConfiguration) {
+    public Observer(IApplicationState applicationState, PaintCanvas paintCanvas, ShapeSubjectList shapeList, ShapeConfiguration shapeConfiguration) {
         this.applicationState = applicationState;
         this.paintCanvas = paintCanvas;
         this.shapeList = shapeList;
         this.shapeConfiguration = shapeConfiguration;
-        applicationState.observerRegister(this);
+        applicationState.observerRegisters(this);
     }
 
     public void execute() {
@@ -40,18 +38,18 @@ public class MouseObserver extends JFrame implements MouseAdapterObserverInterfa
         if (startAndEndPointMode.equals(MouseMode.DRAW))
         {
             paintCanvas.setCursor((new Cursor(Cursor.CROSSHAIR_CURSOR)));
-            paintCanvas.addMouseListener(new MouseDrawer(applicationState, shapeList, shapeConfiguration));
+            paintCanvas.addMouseListener(new Drawer(applicationState, shapeList, shapeConfiguration));
         }
         else if (startAndEndPointMode.equals(MouseMode.SELECT))
         {
             paintCanvas.setCursor((new Cursor(Cursor.HAND_CURSOR)));
-            paintCanvas.addMouseListener(new MouseSelector(applicationState, shapeList));
+            paintCanvas.addMouseListener(new Selector(applicationState, shapeList));
 
         }
         else if (startAndEndPointMode.equals(MouseMode.MOVE))
         {
             paintCanvas.setCursor((new Cursor(Cursor.MOVE_CURSOR)));
-            paintCanvas.addMouseListener(new MouseMover(applicationState, shapeList, shapeConfiguration));
+            paintCanvas.addMouseListener(new Mover(applicationState, shapeList, shapeConfiguration));
         }
 
     }

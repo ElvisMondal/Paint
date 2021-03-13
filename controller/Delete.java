@@ -3,18 +3,18 @@ package controller;
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
 import model.interfaces.IUndoable;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 import view.interfaces.DrawShapeInterface;
 
 import java.util.ArrayList;
 
 public class Delete  implements CommandInterface, IUndoable {
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private IApplicationState appState;
     private ShapeConfiguration shapeConfiguration;
     ArrayList<DrawShapeInterface> selectedShapes;
 
-    public Delete(IApplicationState applicationState, ShapeListSubjectInterface shapeList, ShapeConfiguration shapeConfiguration) {
+    public Delete(IApplicationState applicationState, ShapeSubjectList shapeList, ShapeConfiguration shapeConfiguration) {
         this.appState = applicationState;
         this.shapeConfiguration = shapeConfiguration;
         this.shapeList = shapeList;
@@ -22,10 +22,10 @@ public class Delete  implements CommandInterface, IUndoable {
 
     public void execute() {
 
-        selectedShapes = shapeList.get_SelectedShapesList();
+        selectedShapes = shapeList.getSelectedsShapesLists();
         for (DrawShapeInterface shape : selectedShapes) {
-            shapeList.remove_Shape(shape);
-            shapeList.observerNotification();
+            shapeList.removeShap(shape);
+            shapeList.observersNotification();
         }
         CommandHistory.add(this);
     }
@@ -33,14 +33,14 @@ public class Delete  implements CommandInterface, IUndoable {
     @Override
     public void undo() {
         for (DrawShapeInterface shape : selectedShapes) {
-            shapeList.add_Shape(shape);
+            shapeList.addShap(shape);
         }
     }
 
     @Override
     public void redo() {
         for (DrawShapeInterface shape : selectedShapes) {
-            shapeList.remove_Shape(shape);
+            shapeList.removeShap(shape);
         }
     }
 }

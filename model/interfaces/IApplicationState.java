@@ -21,9 +21,9 @@ public interface IApplicationState {
 
     ShapeType getActiveShapeType();
 
-    ShapeConfiguration get_CurrentShapeConfig();
+    ShapeConfiguration getCurrentShapeConfi();
 
-    ShapeConfiguration get_CurrentShapeConfigs();
+    ShapeConfiguration getCurrentShapeConfigs();
 
     MouseMode getActiveStartAndEndPointMode();
 
@@ -51,7 +51,7 @@ public interface IApplicationState {
     void setActiveSecondaryColor(ShapeColor activeSecondaryColor);
 
 
-    void observerRegister(MouseAdapterObserverInterface o);
+    void observerRegisters(MouseAdapterObserverInterface o);
 
-    void observersNotification();
+    void observerNotifications();
 }

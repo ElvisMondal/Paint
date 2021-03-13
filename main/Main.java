@@ -3,7 +3,7 @@ package main;
 import controller.IJPaintController;
 import controller.JPaintController;
 import model.ShapeConfiguration;
-import model.ShapeList;
+import model.Shape;
 import model.persistence.ApplicationState;
 import view.gui.Gui;
 import view.gui.*;
@@ -17,7 +17,7 @@ import java.awt.*;
 public class Main {
     public static void main(String[] args){
 
-        ShapeList shapeList = new ShapeList();
+        Shape shapeList = new Shape();
         ShapeConfiguration shapeConfig = new ShapeConfiguration();
         PaintCanvas paintCanvas = new PaintCanvas(shapeList);
         IGuiWindow guiWindow = new GuiWindow(paintCanvas);
@@ -32,8 +32,8 @@ public class Main {
         paintCanvas.setCursor((new Cursor(Cursor.CROSSHAIR_CURSOR)));
 
         IJPaintController paintController = new JPaintController(uiModule, appState, shapeList, shapeConfig);
-        MouseObserver mouseObserver = new MouseObserver(appState, paintCanvas, shapeList, shapeConfig);
-        mouseObserver.execute();
+        Observer observer = new Observer(appState, paintCanvas, shapeList, shapeConfig);
+        observer.execute();
         paintController.setup();
 
     }

@@ -12,25 +12,25 @@ public interface DrawShapeInterface{
 
     boolean contains(Points start_Point);
 
-    Points getStartPoint();
+    Points getStartsPoints();
 
-    Points getEndPoint();
+    Points getEndsPoints();
 
     void addX(int dx);
 
     void addY(int dy);
 
-    void setAdjustedEnd(Points adjustedEnd);
+    void setAdjustedsEnds(Points adjustedEnd);
 
-    void setAdjustedStart(Points adjustedStart);
+    void setAdjustedsStarts(Points adjustedStart);
 
-    Points getAdjustedStart();
+    Points getAdjustedsStarts();
 
-    Points getAdjustedEnd();
+    Points getAdjustedsEnds();
 
-    ShapeConfiguration getShapeConfiguration();
+    ShapeConfiguration getShapesConf();
 
-    int getWidth();
+    int getWidths();
 
-    int getHeight();
+    int getHeights();
 }

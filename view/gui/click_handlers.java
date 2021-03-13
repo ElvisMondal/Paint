@@ -1,28 +1,28 @@
 package view.gui;
 
 import controller.CommandCreateShape;
-import controller.CommandMoveShape;
+import controller.MoveShapes;
 import controller.CommandSelectShape;
 import controller.Points;
 import model.MouseMode;
 import model.ShapeColor;
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class click_handler extends MouseAdapter {
+public class click_handlers extends MouseAdapter {
     private Points startPoint, endPoint;
     private IApplicationState appState;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private ShapeConfiguration shapeConfig;
     ArrayList<ShapeColor> shapecolor = new ArrayList();
 
-    public click_handler(IApplicationState applicationState, ShapeListSubjectInterface shapeList, ShapeConfiguration shapeConfiguration) {
+    public click_handlers(IApplicationState applicationState, ShapeSubjectList shapeList, ShapeConfiguration shapeConfiguration) {
         this.appState = applicationState;
         this.shapeList = shapeList;
         this.shapeConfig = shapeConfiguration;
@@ -61,7 +61,7 @@ public class click_handler extends MouseAdapter {
                 break;
 
             case MOVE:
-                CommandMoveShape newMove = new CommandMoveShape(appState, shapeList);
+                MoveShapes newMove = new MoveShapes(appState, shapeList);
                 newMove.execute();
                 break;
 

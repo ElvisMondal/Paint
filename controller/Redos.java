@@ -1,6 +1,6 @@
 package controller;
 
-public class CommandRedo implements CommandInterface {
+public class Redos implements CommandInterface {
     @Override
     public void execute() {
         System.out.println("Command Executed => Redo");

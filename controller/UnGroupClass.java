@@ -1,28 +1,22 @@
 package controller;
 
-import model.ShapeConfiguration;
-import model.ShapeList;
 import model.interfaces.IApplicationState;
 import model.interfaces.IUndoable;
-import model.interfaces.ShapeListSubjectInterface;
-import view.gui.PaintCanvas;
+import model.interfaces.ShapeSubjectList;
 import view.interfaces.DrawShapeInterface;
-import view.interfaces.PaintCanvasBase;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 public class UnGroupClass implements IUndoable,CommandInterface {
 
     private ArrayList<DrawShapeInterface> UnGroup;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private IApplicationState applicationState;
     DrawShapeInterface gp;
 
 
 
-    public UnGroupClass(ShapeListSubjectInterface shapeList, IApplicationState applicationState) {
+    public UnGroupClass(ShapeSubjectList shapeList, IApplicationState applicationState) {
         this.shapeList = shapeList;
         this.applicationState = applicationState;
 
@@ -35,7 +29,7 @@ public class UnGroupClass implements IUndoable,CommandInterface {
         UnGroup = new ArrayList<>();
 
 
-        for (DrawShapeInterface shape2 : shapeList.get_ShapeList()) {
+        for (DrawShapeInterface shape2 : shapeList.getShapesLists()) {
 
 
                 if (shape2 instanceof Group)
@@ -45,7 +39,7 @@ public class UnGroupClass implements IUndoable,CommandInterface {
 
         }
 
-        shapeList.remove_Shape(gp);
+        shapeList.removeShap(gp);
 
 
         CommandHistory.add(this);
@@ -55,14 +49,14 @@ public class UnGroupClass implements IUndoable,CommandInterface {
     @Override
     public void undo() {
 
-            shapeList.add_Shape(gp);
+            shapeList.addShap(gp);
 
     }
 
     @Override
     public void redo() {
 
-            shapeList.remove_Shape(gp);
+            shapeList.removeShap(gp);
 
 
     }

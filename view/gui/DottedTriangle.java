@@ -87,30 +87,30 @@ public class DottedTriangle extends PaintCanvasBase implements DrawShapeInterfac
         }
     }
 
-    public Points getStartPoint() {
+    public Points getStartsPoints() {
         return startPoint;
     }
 
-    public Points getEndPoint() {
+    public Points getEndsPoints() {
         return adjustedEnd;
     }
 
     @Override
-    public void setAdjustedStart(Points adjustedStart) {
+    public void setAdjustedsStarts(Points adjustedStart) {
         this.adjustedStart = adjustedStart;
     }
 
     @Override
-    public void setAdjustedEnd(Points adjustedEnd) {
+    public void setAdjustedsEnds(Points adjustedEnd) {
         this.adjustedEnd = adjustedEnd;
     }
 
-    public Points getAdjustedStart() {
+    public Points getAdjustedsStarts() {
         return adjustedStart;
     }
 
     @Override
-    public Points getAdjustedEnd() {
+    public Points getAdjustedsEnds() {
         return adjustedEnd;
     }
 
@@ -128,15 +128,15 @@ public class DottedTriangle extends PaintCanvasBase implements DrawShapeInterfac
         this.y[2] = adjustedEnd.getY() + dy;
     }
 
-    public ShapeConfiguration getShapeConfiguration() {
+    public ShapeConfiguration getShapesConf() {
         return shapeConfiguration;
     }
 
-    public int getWidth() {
+    public int getWidths() {
         return width;
     }
 
-    public int getHeight() {
+    public int getHeights() {
         return height;
     }{
     }

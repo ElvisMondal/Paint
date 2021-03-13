@@ -5,23 +5,23 @@ import controller.Points;
 import model.ShapeColor;
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class MouseDrawer extends MouseAdapter {
+public class Drawer extends MouseAdapter {
     private Points startPoint;
     private Points endPoint;
     private IApplicationState applicationState;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private ShapeConfiguration shapeConfiguration;
     ArrayList<ShapeColor> shapecolor = new ArrayList();
 
 
-    public MouseDrawer(IApplicationState applicationState, ShapeListSubjectInterface shapeList, ShapeConfiguration shapeConfiguration) {
+    public Drawer(IApplicationState applicationState, ShapeSubjectList shapeList, ShapeConfiguration shapeConfiguration) {
         this.applicationState = applicationState;
         this.shapeList = shapeList;
         this.shapeConfiguration = shapeConfiguration;

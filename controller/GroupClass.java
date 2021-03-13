@@ -2,8 +2,7 @@ package controller;
 
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
-import model.interfaces.IUndoable;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 import view.gui.DottedEllipse;
 import view.gui.DottedRect;
 import view.gui.DottedTriangle;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 
 
 public class GroupClass implements CommandInterface{
-    private ShapeListSubjectInterface shapeList,shapeto;
+    private ShapeSubjectList shapeList,shapeto;
     private DrawShapeInterface selectedShape;
     private DrawShapeInterface l,b;
     private IApplicationState applicationState;
@@ -24,7 +23,7 @@ public class GroupClass implements CommandInterface{
     ArrayList<DrawShapeInterface>lp=new ArrayList<>();
 
 
-    public GroupClass(ShapeListSubjectInterface shapeList, IApplicationState applicationState) {
+    public GroupClass(ShapeSubjectList shapeList, IApplicationState applicationState) {
         this.shapeList = shapeList;
         this.applicationState = applicationState;
 
@@ -34,23 +33,23 @@ public class GroupClass implements CommandInterface{
     public void execute() {
 
 
-            p=shapeList.get_ShapeList().size();
+            p=shapeList.getShapesLists().size();
 
 
-            l = shapeList.get_ShapeList().get(0);
+            l = shapeList.getShapesLists().get(0);
             // l.getAdjustedStart();
 
-            b=shapeList.get_ShapeList().get(p-1);
+            b=shapeList.getShapesLists().get(p-1);
 
             // b.getAdjustedEnd();
 
-            shapeConfiguration = applicationState.get_CurrentShapeConfigs();
+            shapeConfiguration = applicationState.getCurrentShapeConfigs();
 
 
-            for (DrawShapeInterface shape : shapeList.get_ShapeList()) {
+            for (DrawShapeInterface shape : shapeList.getShapesLists()) {
 
-                u=u+shape.getWidth();
-                v=v+shape.getHeight();
+                u=u+shape.getWidths();
+                v=v+shape.getHeights();
 
                 if(shape instanceof DottedRect) {
                     sp = shape;
@@ -69,14 +68,14 @@ public class GroupClass implements CommandInterface{
             }
 
             for(DrawShapeInterface sh:lp) {
-                shapeList.remove_Shape(sh);
+                shapeList.removeShap(sh);
             }
 
-            Group commandGroup=new Group(shapeConfiguration,l.getAdjustedStart().getX(),l.getAdjustedStart().getY(),u,v);
+            Group commandGroup=new Group(shapeConfiguration,l.getAdjustedsStarts().getX(),l.getAdjustedsStarts().getY(),u,v);
 
-            shapes= new Group(shapeConfiguration,l.getAdjustedStart().getX(),l.getAdjustedStart().getY(),u,v);
+            shapes= new Group(shapeConfiguration,l.getAdjustedsStarts().getX(),l.getAdjustedsStarts().getY(),u,v);
             commandGroup.addChild(shapes);
-            this.shapeList.add_Shape(commandGroup);
+            this.shapeList.addShap(commandGroup);
 
         }
 

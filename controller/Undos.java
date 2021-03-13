@@ -1,6 +1,6 @@
 package controller;
 
-public class CommandUndo implements CommandInterface {
+public class Undos implements CommandInterface {
 
     @Override
     public void execute() {

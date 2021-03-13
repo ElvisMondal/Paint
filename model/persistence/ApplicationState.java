@@ -47,7 +47,7 @@ public class ApplicationState implements IApplicationState {
 
 
     @Override
-    public ShapeConfiguration get_CurrentShapeConfig() {
+    public ShapeConfiguration getCurrentShapeConfi() {
         ShapeConfiguration shapeConfig = new ShapeConfiguration();
         shapeConfig.setPrimaryColor(activePrimaryColor);
         shapeConfig.setSecondaryColor(activeSecondaryColor);
@@ -63,7 +63,7 @@ public class ApplicationState implements IApplicationState {
     }
 
     @Override
-    public ShapeConfiguration get_CurrentShapeConfigs() {
+    public ShapeConfiguration getCurrentShapeConfigs() {
         ShapeConfiguration shapeConfigs = new ShapeConfiguration();
         shapeConfigs.setShapeType(activeShapeType);
         shapeConfigs.setEndPoint(endPoint);
@@ -133,7 +133,7 @@ public class ApplicationState implements IApplicationState {
     @Override
     public void setActiveStartAndEndPointMode() {
         activeMouseMode = uiModule.getDialogResponse(dialogProvider.getChooseStartAndEndPointModeDialog());
-        observersNotification();
+        observerNotifications();
     }
 
     @Override
@@ -209,12 +209,12 @@ public class ApplicationState implements IApplicationState {
     }
 
     @Override
-    public void observerRegister(MouseAdapterObserverInterface o) {
+    public void observerRegisters(MouseAdapterObserverInterface o) {
         mouseObservers.add(o);
     }
 
     @Override
-    public void observersNotification() {
+    public void observerNotifications() {
         for (MouseAdapterObserverInterface observer : mouseObservers) {
             observer.execute();
         }

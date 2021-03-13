@@ -60,31 +60,31 @@ public class DrawEllipse extends PaintCanvasBase implements DrawShapeInterface {
     }
 
     @Override
-    public void setAdjustedStart(Points adjustedStart) {
+    public void setAdjustedsStarts(Points adjustedStart) {
         this.adjustedStart = adjustedStart;
     }
 
     @Override
-    public void setAdjustedEnd(Points adjustedEnd) {
+    public void setAdjustedsEnds(Points adjustedEnd) {
         this.adjustedEnd = adjustedEnd;
     }
 
-    public Points getAdjustedStart() {
+    public Points getAdjustedsStarts() {
         return adjustedStart;
     }
 
     @Override
-    public Points getAdjustedEnd() {
+    public Points getAdjustedsEnds() {
         return adjustedEnd;
     }
 
     @Override
-    public Points getStartPoint() {
+    public Points getStartsPoints() {
         return startPoint;
     }
 
     @Override
-    public Points getEndPoint() {
+    public Points getEndsPoints() {
         return adjustedEnd;
     }
 
@@ -101,17 +101,17 @@ public class DrawEllipse extends PaintCanvasBase implements DrawShapeInterface {
         adjustedEnd.setY(adjustedEnd.getY() + dy);
     }
 
-    public ShapeConfiguration getShapeConfiguration() {
+    public ShapeConfiguration getShapesConf() {
         return shapeConfig;
     }
 
     @Override
-    public int getWidth() {
+    public int getWidths() {
         return width;
     }
 
     @Override
-    public int getHeight() {
+    public int getHeights() {
         return height;
     }{
 }

@@ -1,25 +1,25 @@
 package view.gui;
 
-import controller.CommandMoveShape;
+import controller.MoveShapes;
 import controller.Points;
 import model.ShapeColor;
 import model.ShapeConfiguration;
 import model.interfaces.IApplicationState;
-import model.interfaces.ShapeListSubjectInterface;
+import model.interfaces.ShapeSubjectList;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class MouseMover extends MouseAdapter {
+public class Mover extends MouseAdapter {
     private Points startPoint;
     private Points endPoint;
     private IApplicationState applicationState;
-    private ShapeListSubjectInterface shapeList;
+    private ShapeSubjectList shapeList;
     private ShapeConfiguration shapeConfiguration;
     ArrayList<ShapeColor> shapecolor = new ArrayList();
 
-    public MouseMover(IApplicationState applicationState, ShapeListSubjectInterface shapeList, ShapeConfiguration shapeConfiguration) {
+    public Mover(IApplicationState applicationState, ShapeSubjectList shapeList, ShapeConfiguration shapeConfiguration) {
         this.applicationState = applicationState;
         this.shapeList = shapeList;
         this.shapeConfiguration = shapeConfiguration;
@@ -30,7 +30,7 @@ public class MouseMover extends MouseAdapter {
 
         endPoint = new Points(e.getX(), e.getY());
         applicationState.setEndPoint(endPoint);
-        CommandMoveShape newMove = new CommandMoveShape(applicationState, shapeList);
+        MoveShapes newMove = new MoveShapes(applicationState, shapeList);
         newMove.execute();
     }
 
